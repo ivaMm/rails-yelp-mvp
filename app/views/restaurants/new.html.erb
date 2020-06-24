@@ -1,9 +1,9 @@
 <div class="container">
   <%= simple_form_for(@restaurant) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :phone_number %>
-    <%= f.input :category %>
+    <%= f.input :name, placeholder: "Hungry Ghost" %>
+    <%= f.input :address, placeholder: "479 Hong Kong" %>
+    <%= f.input :phone_number, placeholder: "697-104-5501" %>
+    <%= f.input :category, placeholder: "Chinese" %>
     <%= f.submit value="Add Restaurant"%>
   <% end %>
 </div>

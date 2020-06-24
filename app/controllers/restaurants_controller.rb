@@ -9,9 +9,11 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @valid_categories = ["chinese", "italian", "japanese", "french", "belgian"] 
   end
 
   def create
+    @valid_categories = ["chinese", "italian", "japanese", "french", "belgian"] 
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
