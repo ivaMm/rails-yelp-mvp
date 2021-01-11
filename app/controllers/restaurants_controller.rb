@@ -1,22 +1,24 @@
+# frozen_string_literal: true
+
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show]
+
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.order(created_at: :desc)
   end
 
   def show
+    # @review = Review.new
   end
 
   def new
     @restaurant = Restaurant.new
-    @valid_categories = ["chinese", "italian", "japanese", "french", "belgian"] 
   end
 
   def create
-    @valid_categories = ["chinese", "italian", "japanese", "french", "belgian"] 
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurants_path #(@restaurant)
     else
       render :new
     end
@@ -29,6 +31,6 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-  	params.require(:restaurant).permit(:name, :address, :phone_number, :category)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :category)
   end
 end

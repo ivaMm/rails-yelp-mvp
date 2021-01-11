@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class Restaurant < ApplicationRecord
-  @valid_categories = ["chinese", "italian", "japanese", "french", "belgian"] 
+  CATEGORIES = %w[chinese italian japanese french belgian].freeze
   validates :name, :address, :category, presence: true
-  validates :category, inclusion: { in: @valid_categories, message: "must be: #{@valid_categories.join(', ')}" }
+  validates :category, inclusion: { in: CATEGORIES, message: "must be: #{CATEGORIES.join(', ')}" }
   has_many :reviews, dependent: :destroy
-  before_validation { self.category = self.category.downcase }
 end

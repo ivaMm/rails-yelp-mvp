@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReviewsController < ApplicationController
   before_action :find_restaurant
   def new
@@ -17,7 +19,7 @@ class ReviewsController < ApplicationController
   private
 
   def find_restaurant
-  	@restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def review_params
