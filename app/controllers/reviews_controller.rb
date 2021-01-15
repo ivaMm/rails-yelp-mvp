@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
-  before_action :find_restaurant
+  before_action :find_restaurant, only: %i[new create]
   def new
     @review = Review.new
   end
@@ -14,6 +14,13 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @restaurant = @review.restaurant
+    @review.destroy
+    redirect_to restaurant_path(@restaurant)
   end
 
   private
