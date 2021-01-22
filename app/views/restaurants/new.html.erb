@@ -4,6 +4,6 @@
     <%= f.input :address, placeholder: "479 Hong Kong" %>
     <%= f.input :phone_number, placeholder: "697-104-5501" %>
     <%= f.input :category, collection: Restaurant::CATEGORIES %>
-    <%= f.submit value="Add Restaurant"%>
+    <%= f.submit value="Add Restaurant", class: 'btn btn-primary' %>
   <% end %>
 </div>

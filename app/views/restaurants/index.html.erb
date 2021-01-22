@@ -1,9 +1,13 @@
 <div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-md-auto">
-      <% @restaurants.each do |restaurant| %>
-        <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+  <div class="row justify-content-sm-center">
+    <% @restaurants.each do |restaurant| %>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class='card' style='height: 12vw; width: 16vw; margin: 1vw;'>
+          <div class='card-body'>
+            <h3><%= restaurant.name %></h3>
+          </div>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
